@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MidtermProj</title>
+    <link rel="stylesheet" href="MuñozStyle.css">
+    <script src="MuñozScript.js" defer></script>
+    
+</head>
+<body>
+    <header>
+        <div class="logo">R <span>WEBSITE</span></div>
+          <nav>
+            <ul> 
+              <li><button class="btn active" onclick="showHome()">Home</button></li>
+              <li><button class="btn" onclick="showPortfolio()">Portfolio</button></li>
+              <li><button class="btn" onclick="showFavorites()">Favorites</button></li>
+              <li><button class="social-btn facebook" onclick="openLink('https://www.facebook.com/profile.php?id=100069234792300')">Facebook</button></li>
+              <li><button class="social-btn instagram" onclick="openLink('https://www.instagram.com/ramcee_jade?igsh=MWo5MDh6OXk5N3B0aw==')">Instagram</button></li>
+            </ul>
+          </nav>
+   </header>
+    <section id="profileSection" class="profile">        
+          <div class="card">
+            <div class="info">
+                <h1>Hello, It's Me</h1>
+                <h2>Ramcee Jade L. Muñoz</h2>
+                <h3>and I'm a <span class="typing"></span></h3>
+                <p>This midterm project focuses on creating an interactive webpage using HTML, CSS, and JavaScript. It highlights key features such as dynamic content, responsive design, and user interaction.</p>
+            </div>
+    
+            <!-- Slideshow Container -->
+            <div class="image">
+              <div class="slideshow">
+                <img src="picture/pe1.jpg" class="slide active" alt="Ramcee Jade Munoz">
+                <img src="picture/pe4.jpg" class="slide" alt="Ramcee Jade Munoz">
+                <img src="picture/pe3.jpg" class="slide" alt="Ramcee Jade Munoz">
+                <img src="picture/pe2.jpg" class="slide" alt="Ramcee Jade Munoz">
+        
+                <!-- Navigation Buttons -->
+                <button class="prev" onclick="prevSlide()">❮</button>
+                <button class="next" onclick="nextSlide()">❯</button>
+              </div>
+            </div>
+        </div>
+    </section>
+
+   <div class="portfolio-wrapper">
+    <div id="portfolioContainer">
+        <h1>FUNCTION INTEGRATION</h1>
+        <p>Welcome to my portfolio! Here are some of my projects.</p>
+        <div class="portfolio-card">
+            <img src="picture/brain.jpg" alt="Function Integration">
+            <h4>Pick your Choice</h4>
+            <div class="button-container">
+                <button onclick="temperatureConverter()">1. Temperature Converter</button>
+                <button onclick="longerWord()">2. The Longer Word</button>
+                <button onclick="knowMyBirthstone()">3. Know My Birthstone</button>
+                <button onclick="basicOperators()">4. Basic Operators</button>
+                <button onclick="computeAcceleration()">5. Compute for Acceleration</button>
+            </div>
+        </div>
+    </div>
+   </div>
+   
+   <div id="favoritesModal" class="modal">
+        <div class="modal-content">
+           
+            <div id="content">
+           
+                <div id="art-exhibit">
+                    <div class="artwork-container">
+                        <div id="artwork-1" class="artwork">
+                            
+                            <div class="heart1" onclick="toggleLike(this)"><img src="picture\heart.png" class="tosmall"></div>
+                        </div>
+                        <div class="comments-section">
+                            <div class="comment-box">
+                                <input type="text" class="comment-input" placeholder="Add a comment..." onkeypress="if(event.key === 'Enter') addComment(this.nextElementSibling)">
+                                <button id="postButton" class="post-btn" onclick="addComment(this)">Post</button>
+                            </div>
+                            <ul class="comments-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="artwork-container">
+                        <div id="artwork-2" class="artwork">
+                            
+                            <div class="heart1" onclick="toggleLike(this)"><img src="picture\heart.png" class="tosmall"></div>
+                        </div>
+                        <div class="comments-section">
+                            <div class="comment-box">
+                                <input type="text" class="comment-input" placeholder="Add a comment..." onkeypress="if(event.key === 'Enter') addComment(this.nextElementSibling)">
+                                <button id="postButton" class="post-btn" onclick="addComment(this)">Post</button>
+                            </div>
+                            <ul class="comments-list"></ul>
+                        </div>
+                    </div>
+
+                    <div class="artwork-container">
+                        <div id="artwork-3" class="artwork">
+                           
+                            <div class="heart1" onclick="toggleLike(this)"><img src="picture\heart.png" class="tosmall"></div>
+                        </div>
+                        <div class="comments-section">
+                            <div class="comment-box">
+                                <input type="text" class="comment-input" placeholder="Add a comment..." onkeypress="if(event.key === 'Enter') addComment(this.nextElementSibling)">
+                                <button id="postButton" class="post-btn" onclick="addComment(this)">Post</button>
+                            </div>
+                            <ul class="comments-list"></ul>
+                        </div>
+                    </div>
+                    <div class="artwork-container">
+                        <div id="artwork-4" class="artwork">
+                            
+                            <div class="heart1" onclick="toggleLike(this)"><img src="picture\heart.png" class="tosmall"></div>
+                        </div>
+                        <div class="comments-section">
+                            <div class="comment-box">
+                                <input type="text" class="comment-input" placeholder="Add a comment..." onkeypress="if(event.key === 'Enter') addComment(this.nextElementSibling)">
+                                <button id="postButton" class="post-btn" onclick="addComment(this)">Post</button>
+                            </div>
+                            <ul class="comments-list"></ul>
+                        </div>
+                    </div>
+                    <div class="artwork-container">
+                        <div id="artwork-5" class="artwork">
+                            
+                            <div class="heart1" onclick="toggleLike(this)"><img src="picture\heart.png" class="tosmall"></div>
+                        </div>
+                        <div class="comments-section">
+                            <div class="comment-box">
+                                <input type="text" class="comment-input" placeholder="Add a comment..." onkeypress="if(event.key === 'Enter') addComment(this.nextElementSibling)">
+                                <button id="postButton" class="post-btn" onclick="addComment(this)">Post</button>
+                            </div>
+                            <ul class="comments-list"></ul>
+                        </div>
+                    </div>
+                    <div class="artwork-container">
+                        <div id="artwork-6" class="artwork">
+                            
+                            <div class="heart1" onclick="toggleLike(this)"><img src="picture\heart.png" class="tosmall"></div>
+                        </div>
+                        <div class="comments-section">
+                            <div class="comment-box">
+                                <input type="text" class="comment-input" placeholder="Add a comment..." onkeypress="if(event.key === 'Enter') addComment(this.nextElementSibling)">
+                                <button id="postButton" class="post-btn" onclick="addComment(this)">Post</button>
+                            </div>
+                            <ul class="comments-list"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script src="MuñozScript.js"></script>
+
+    <footer>
+        <div class="tagline" id="tagline">Always choose the right thing"</div>
+    </footer>
+
+</body>
+</html>

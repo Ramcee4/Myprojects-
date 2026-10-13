@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Shirt Haven</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            height: 100vh;
+            background-color: #f9f9f9; /* Soft background */
+            color: #333;
+            background-image: url('C:/huhay/bla/bm5.jpg');
+        }
+        
+       
+        .menu {
+           position: relative; /* Required for positioning the pseudo-element */
+           background-image: url('C:/huhay/bla/bm5.jpg'); 
+           background-color: gray; /* Light beige background */
+           padding: 10px;
+           display: grid;
+           grid-template-rows: repeat(8, auto);
+           gap: 20px;
+           box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+           height: 120vh;
+                  
+        }
+         
+
+        .menu h2 {
+            color: white; /* Dark text for contrast */
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .menu a {
+            color: black;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            background-color: #a8d5ba; /* Light peach background */
+            text-align: center;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .menu a:hover {
+            background-color: gray; /* Orange on hover */
+            color:  #fff;
+            box-shadow: 0 0 20px #ff8c00;
+            transform: scale(1.05);
+        }
+
+        .content {
+            padding: 40px;
+            background-image: url('C:/huhay/bla/bm5.jpg');
+            border-left: 5px solid  #a8d5ba; 
+            background-color: red; /* White background for content */
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-details {
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .contact-details h1 {
+            color: #ff8c00; /* Soft orange for headings */
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .contact-details p {
+            color: white;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            background-color: #a8d5ba; /* Light pink background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 95%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-form input[type="submit"] {
+            background-color: gray;
+            border: none;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form input[type="submit"]:hover {
+            background-color: black; /* Darker orange on hover */
+        }
+
+        .message-sent {
+            color: #28a745; /* Green for message sent */
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .image-gallery {
+            color: white;
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .image-gallery img {
+            width: 30%;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .price-list {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .column {
+            flex: 1;
+            margin: 0 20px;
+            
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            color: white;
+        }
+
+        .column p {
+            margin-top: 20px;
+            color: yellow;
+        }
+
+        .column strong {
+            color: white;
+        }
+
+        /* Gallery styling */
+        .image-gallery {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .image-item {
+            position: relative;
+            width: 30%;
+        }
+
+        .image-item img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* View Details button inside image and centered at the bottom */
+        .view-details {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: gray;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .view-details:hover {
+            background-color: black;
+        }
+   
+      * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Clean and modern font */
+    }
+
+      .biography {
+       background-image: url('C:/huhay/bla/bm5.jpg');
+            background-color: gray;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            border: 4px solid #a8d5ba; 
+            margin: 0 auto;   
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: white; /* Soft dark gray for headings */
+      margin-bottom: 20px;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-image: url('C:/Users/HF/Downloads/jade.jpg'); /* Placeholder image */
+      background-size: cover;
+      background-position: center;
+      margin: 0 auto 20px;
+      border: 4px solid #a7c4ef; /* Aesthetic pastel blue border */
+    }
+
+    .name {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: skyblue;
+      margin-bottom: 10px;
+    }
+
+    .quote {
+      font-style: italic;
+      color: white; /* Softer gray for quotes */
+      margin-bottom: 30px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .grid-item {
+      background-color: #f0f0f0; /* Light pastel blue background */
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.3s ease;
+    }
+
+    .grid-item:hover {
+      background-color: #d8f3dc; /* Slightly darker on hover for interaction */
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      color: black; /* Subtle gray for subheadings */
+      margin-bottom: 10px;
+    }
+
+    p, label {
+      font-size: 1.1rem;
+      color: black; /* Clean and neutral text color */
+    }
+
+    .input-range {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .bio {
+      padding: 20px;  
+      background-color: gray; 
+      color: white;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    .bio h3 {
+      color: black;
+     
+    }
+  
+    .bio p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+      color: white;
+    }
+
+    #biography {
+     background-color: lightgrey; /* Or any color you want */
+     overflow: hidden; /* Hide any overflowing content */
+     transition: background-color 0.3s; /* Optional: Smooth background transition */
+    }
+
+    #biography.active {
+     background-color: lightblue; /* Optional: Change color when active */
+    }
+    
+    
+        
+  </style>
+
+    <script>       
+        function loadbiography() {
+            const content = document.querySelector('.content');
+            content.innerHTML = ` 
+              <div id="biography" class="biography">             
+                <h1>Biography</h1>
+                <div class="profile-img"></div>
+                <div class="name">Ramcee Jade Munoz</div>
+         <div class="quote">"Approachable"</div>
+         <div class="grid-container">
+         <div class="grid-item">
+               <h3>Age</h3>
+               <p>20</p>
+               </div>
+         <div class="grid-item">
+               <h3>Marital Status</h3>
+               <p>Single</p>
+         </div>
+         <div class="grid-item">
+               <h3>Occupation</h3>
+               <p>Student</p>
+         </div>
+         <div class="grid-item">
+               <h3>Education</h3>
+               <p>BSIT Undergraduate</p>
+         </div>
+         <div class="grid-item">
+               <h3>Personality</h3>
+               <label>- Optimistic</label><br>
+               <label>- Determined</label><br>
+               <label>- Creative</label>
+               <label>- Empathetic</label>
+         </div>
+         <div class="grid-item">
+               <h3>Frustraion</h3>
+               <label>- I spent hours debugging my code, but the system kept crashing with an error message that made no sense, and every solution I tried just led to more issues—it's incredibly frustrating when progress seems impossible.</label><br>
+         </div>
+               <div class="grid-item">
+               <h3>Motivations</h3>
+               <label>Family</label><br>
+               <input type="range" class="input-range"><br>
+               <label>Personal Growth</label><br>
+               <input type="range" class="input-range">
+               <label>Love-ones</label><br>
+               <input type="range" class="input-range">
+               </div>
+         <div class="grid-item">
+               <h3>Goals</h3>
+               <p>Practice HTML & CSS each month to improve skills.</p>
+         </div>
+         <div class="grid-item">
+               <h3>Skills</h3>
+               <label>Web Design</label><br>
+               <input type="range" class="input-range"><br>
+               <label>Programming</label><br>
+               <input type="range" class="input-range">
+         </div>
+         </div>
+
+         <div class="bio">
+               <h3>Bio</h3>
+               <p>"With a passion for all things tech, I’m on a journey to transform ideas into digital realities. Whether it’s coding, designing websites, or troubleshooting tech issues, I love diving into the world of information technology!"</p>
+         </div>  
+        </div> 
+          
+      `;
+  }
+        function viewDetails(itemName, price, description) {
+            alert(`Details:\n\nItem: ${itemName}\nPrice: ${price}\nDescription: ${description}`);
+        }
+
+        window.onload = function() {
+            const content = document.querySelector('.content');
+            content.innerHTML = `
+                <h1 style="color: #ff8c00;">Welcome to T-Shirt Haven!</h1>
+                <p style="color: white;">At T-Shirt Haven, we offer a wide variety of stylish and comfortable T-shirts designed to express your individuality. Whether you're looking for casual wear, workout gear, or trendy designs, we have something for everyone!</p>
+
+                <div class="image-gallery">
+                    <div class="image-item">
+                        <img src="C:/huhay/bla/t5.jpg" alt="T-Shirt Image 1">
+                        <button class="view-details" onclick="viewDetails('Classic T-Shirt', '399php', 'Comfortable and stylish classic T-shirt for everyday wear.')">View Details</button>
+                    </div>
+                    <div class="image-item">
+                        <img src="C:/huhay/bla/t6.jpg" alt="T-Shirt Image 2">
+                        <button class="view-details" onclick="viewDetails('Round-Neck T-Shirt', '349php', 'Round-neck T-shirt, perfect for casual wear in black.')">View Details</button>
+                    </div>
+                    <div class="image-item">
+                        <img src="C:/huhay/bla/t3.jpg" alt="T-Shirt Image 3">
+                        <button class="view-details" onclick="viewDetails('Graphic Print T-Shirt', '299php', 'Trendy T-shirt with a graphic print design for a bold statement.')">View Details</button>
+                    </div>
+                </div>
+
+                <div class="image-gallery">
+                    <div class="image-item">
+                        <img src="C:/huhay/bla/t2.jpg" alt="T-Shirt Image 4">
+                        <button class="view-details" onclick="viewDetails('Limited Edition T-Shirt', '599php', 'Limited edition design for a unique look.')">View Details</button>
+                    </div>
+                    <div class="image-item">
+                        <img src="C:/huhay/bla/t4.jpg" alt="T-Shirt Image 5">
+                        <button class="view-details" onclick="viewDetails('Custom Design T-Shirt', '799php', 'Create your own custom T-shirt.')">View Details</button>
+                    </div>
+                    <div class="image-item">
+                        <img src="C:/huhay/bla/t7.jpg" alt="T-Shirt Image 6">
+                        <button class="view-details" onclick="viewDetails('Graphic Custom Print T-Shirt', '999php', 'Personalized T-shirt with a custom graphic.')">View Details</button>
+                    </div>
+                </div>
+            `;
+        }
+            function loadAboutUs() {
+        const content = document.querySelector('.content');
+        content.innerHTML = `
+        <h1 style="color: #ff8c00;">About T-Shirt Haven</h1>
+        <p style="color: white;">Welcome to T-Shirt Haven, where fashion meets individuality. We believe that your clothing should be an extension of your personality, and that’s why we specialize in offering a diverse range of stylish, high-quality T-shirts designed to express who you are. Whether you're seeking casual wear, bold graphic prints, or customized designs, our commitment to comfort and creativity shines through in every piece. At T-Shirt Haven, we strive to provide an exceptional shopping experience—both online and in-store—by blending modern trends with timeless classics. We’re passionate about sustainable fashion and quality craftsmanship, ensuring that each T-shirt tells its own unique story. Join us in celebrating self-expression through the art of fashion!</p>
+        
+        <h2 style="color: #ff8c00;">Accommodations</h2>
+        <p style="color: white;">We offer a variety of options for our customers to enjoy a comfortable shopping experience:</p>
+        <ul style="color: white;">
+            <li><strong>Online Shopping:</strong> Browse our extensive collection from the comfort of your home.</li>
+            <li><strong>In-Store Experience:</strong> Visit our physical store located at 123 Fashion Street for a personalized shopping experience.</li>
+            <li><strong>Custom Orders:</strong> Create your own unique T-shirt design with our custom order service.</li>
+            <li><strong>Workshops:</strong> Join our workshops to learn about T-shirt design and printing techniques.</li>
+        </ul>
+       `;
+       }
+       function loadPriceList() {
+            const content = document.querySelector('.content');
+            content.innerHTML = `
+                <h1 style="color: #ff8c00;">Price List</h1>
+                <p style="color: white;">Here are some of our T-shirt offerings and their prices:</p>
+                <div class="price-list">
+                    <div class="column">
+                        <p><strong>Classic T-Shirts</strong></p>
+                        <div class="price-item">
+                            <span>Graphic Print T-Shirt</span>
+                            <span>399php</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Round-Neck T-Shirt color black</span>
+                            <span>349php</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Round Neck T-Shirt</span>
+                            <span>299php</span>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <p><strong>Special Editions</strong></p>
+                        <div class="price-item">
+                            <span>Limited Edition T-Shirt</span>
+                            <span>599php</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Custom Design T-Shirt</span>
+                            <span>799php</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Custom T-Shirt</span>
+                            <span>999php</span>
+                        </div>
+                    </div>
+                </div>
+                <p style="color: white;">At T-Shirt Haven, we pride ourselves on offering an exceptional range of services tailored to enhance your shopping experience. Whether you're looking for a unique custom T-shirt design that showcases your personal style or a seamless online ordering process, we have you covered. Our knowledgeable staff is ready to assist you in our inviting physical store, ensuring you find the perfect fit and style. For those interested in learning more about T-shirt design, we offer engaging workshops that dive into the art and techniques of T-shirt printing. With a commitment to quality and customer satisfaction, we strive to make your experience with us enjoyable and memorable!</p>
+
+
+            `;
+        }
+         function loadContactUs() {
+            const content = document.querySelector('.content');
+            content.innerHTML = `
+                <div class="contact-container">
+                    <div class="contact-details">
+                        <h1>Get in Touch with Us</h1>
+                        <p>We'd love to hear from you!</p>
+                        <p>Email: tshirthaven@gmail.com</p>
+                        <p>Phone: (555) 123-4567</p>
+                        <p>Address: 123 Fashion Street, Style City, SC 12345</p>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
+                            <input type="tel" name="phone" placeholder="Your Phone Number (optional)">
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                            <input type="submit" value="Send Message">
+                        </form>
+                        <p id="formMessage" class="message-sent" style="display:none;">Message Sent!</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault(); // Prevent form from reloading the page
+            document.getElementById("formMessage").style.display = "block"; // Show the 'Message Sent!' text
+
+            // Redirect to Home after 2 seconds
+            setTimeout(() => {
+                window.onload(); // Load Home page
+            }, 2000);
+        }
+          const biography = document.getElementById("biography");
+
+        biography.addEventListener("click", function() {
+            // Optional: Toggle class for style change without expanding
+            biography.classList.toggle("active");
+        });
+       
+        window.onload = loadDashboard;
+ 
+    </script>
+
+</head>
+<body>
+  
+    <div class="menu">
+        <h2>T-SHIRT HAVEN MENU</h2>
+        <a href="#" onclick="window.onload()">Home</a>
+        <a href="#" onclick="loadPriceList()">Services</a>
+        <a href="#" onclick="loadAboutUs()">About Us</a>
+        <a href="#" onclick="loadContactUs()">Contact Us</a>
+         <a href="#" onclick="loadbiography()">biography</a>
+        
+    </div>
+
+    <div class="content">
+        <!-- Default content will be dynamically loaded here -->
+    </div>
+
+</body>
+</html>
